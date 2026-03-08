@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Pneumonia Detection AI</title>
+
+<style>
+
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#667eea,#764ba2);
+color:white;
+text-align:center;
+padding-top:80px;
+}
+
+.container{
+background:white;
+color:black;
+width:420px;
+margin:auto;
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+button{
+background:#667eea;
+border:none;
+color:white;
+padding:12px 25px;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#5a67d8;
+}
+
+.result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Pneumonia Detection</h2>
+
+<p>Upload a Chest X-ray Image</p>
+
+<form action="/predict" method="post" enctype="multipart/form-data">
+
+<input type="file" name="file" required>
+<br><br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+Prediction: {{prediction}} <br>
+Confidence: {{confidence}}%
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
