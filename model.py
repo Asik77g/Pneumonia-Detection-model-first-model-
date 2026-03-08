@@ -21,7 +21,7 @@ def load_model():
         nn.Linear(128,2)
     )
 
-    checkpoint = torch.load("pneumonia_model.pth", map_location=device)
+    checkpoint = torch.load("pneumonia_model.pth", map_location="cpu")
 
     model.load_state_dict(checkpoint["model_state_dict"])
 
